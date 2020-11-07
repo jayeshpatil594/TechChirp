@@ -3,8 +3,11 @@ const connectDB = require('./config/db')
 
 const app = express();
 
-//connect db
+//Connect db
 connectDB();
+
+//Init Middleware
+app.use(express.json({ extented: false }));
 
 app.get('/', (req, res) => res.send('GET API is running'));
 
