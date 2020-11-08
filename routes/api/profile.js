@@ -231,7 +231,7 @@ router.put(
     auth,
     check("school", "School is required").not().isEmpty(),
     check("degree", "Degree is required").not().isEmpty(),
-    check("fieldofstudy", "Fieldofstudy is required").not().isEmpty(),
+    check("fieldofstudy", "Field Of Study is required").not().isEmpty(),
     check("from", "From date is required").not().isEmpty(),
   ],
   async (req, res) => {
@@ -307,7 +307,6 @@ router.get("/github/:username", async (req, res) => {
       "User-Agent": "jayeshpail594",
       Authorization: `token ${config.get("githubToken")}`,
     };
-    console.log(uri, headers)
     const gitHubResponse = await axios.get(uri, { headers });
     return res.json(gitHubResponse.data);
   } catch (error) {
