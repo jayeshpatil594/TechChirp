@@ -201,7 +201,6 @@ router.delete("/comment/:id/:comment_id", auth, async (req, res) => {
     const comment = post.comments.find(
       (comment) => comment.id === req.params.comment_id
     );
-    
     //check if comment exists
     if (!comment) {
       return res.status(404).json({ msg: "Comment does not exists" });
@@ -221,7 +220,6 @@ router.delete("/comment/:id/:comment_id", auth, async (req, res) => {
     await post.save();
 
     res.json(post.comments);
-
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Server error");
